@@ -1,3 +1,7 @@
+body{
+    font-family: 'Lato', sans-serif !important;
+}
+
 .container-padre{
     width: 100%;
     min-height: 100vh;
@@ -11,6 +15,8 @@
 }
 
 .container-widgets{
+    display: flex;
+    flex-direction: column;
     background: #333333;
     padding: 30px 15px
 }
@@ -25,15 +31,18 @@
 }
 
 .widgets {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
 }
 
 .widget-time , .widget-weather, .widget-imagen{
     background-color: #fff;
     border-radius: 5px;
     text-align: center;
+    height: 300px;
 }
 
 .widget-time{
@@ -57,8 +66,60 @@
 .widget-imagen .contenido{
     padding: 1em;
     text-align: center;
-    color: #3d3d3d;
     display: flex;
     flex-direction: column;
     gap: 0.5em;
+}
+
+.widget-imagen .contenido h3{
+    font-weight: 700;
+    color: #3d3d3d;
+}
+
+.widget-imagen .contenido p{
+    font-weight: 500;
+    color: #656565;
+}
+
+.widget-weather{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.widget-weather .min-max{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.widget-weather .min-max p{
+    font-size: 24px;
+    font-weight: 500;
+    color: #656565;
+}
+
+.widget-weather .temp{
+    font-size: 70px;
+    font-weight: 900;
+    color: #3d3d3d;
+}
+
+.widget-weather .name{
+    color: #3d3d3d;
+    font-weight: 900;
+}
+
+.widget-weather .temp-icon{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 15px 0;
+}
+
+.widget-weather .temp-icon p{
+    margin: 0;
 }

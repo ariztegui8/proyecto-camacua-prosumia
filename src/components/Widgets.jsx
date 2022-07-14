@@ -7,7 +7,7 @@ const Widgets = () => {
     const [clima, setClima] = useState({});
 
     const {name, main, weather} = clima;
-    console.log(name);
+    
 
     useEffect(()=>{
         const consultarApi = async()=>{
@@ -17,11 +17,14 @@ const Widgets = () => {
             const respuesta = await fetch(url);
             const resultado = await respuesta.json();
             setClima(resultado);
+            console.log(resultado);
           }
           consultarApi()
-    })
+    }, [])
 
     const kelvin = 273.15
+    if(!name || !main |!weather) return null;
+   
    
   return (
     <div className='container-widgets'>
@@ -34,12 +37,14 @@ const Widgets = () => {
                 <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=large&timezone=America%2FArgentina%2FBuenos_Aires" width="100%" height="140" frameborder="0" seamless></iframe>
             </div>
             <div className='widget-weather'>
-                <h2>{name}</h2>
-                <img src={`${weather[0].icon}.png`} alt="" />
-                <p className="text-center fs-1 result-color">{parseInt(main.temp - kelvin)} <span>&#x2103;</span></p>
-                <div>
-                    <p className="">Mín: <span className=""> {parseInt(main.temp_min - kelvin)} &#x2103;</span></p>
-                    <p className="">Máx: <span className=""> {parseInt(main.temp_max - kelvin)} &#x2103;</span></p>
+                <h2 className='name'>{name}</h2>
+                <div className='temp-icon'>
+                    <img src={`http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`} alt="" />
+                    <p className="temp">{parseInt(main.temp - kelvin)}°</p>
+                </div>
+                <div className='min-max'>
+                    <p className="">Mín: <span className="">{parseInt(main.temp_min - kelvin)}°</span></p>
+                    <p className="">Máx: <span className="">{parseInt(main.temp_max - kelvin)}°</span></p>
                 </div>
             </div>
             <div className='widget-imagen'>
