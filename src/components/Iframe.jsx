@@ -7,7 +7,7 @@ const Iframe = () => {
   return (
     
       <div className='container-iframe'>
-        <iframe src="https://trends.google.com/trends/hottrends/visualize?nrow=4&ncol=5" frameborder="0"></iframe>
+        <iframe src="https://trends.google.com/trends/hottrends/visualize?nrow=5&ncol=4&pn=p30" frameborder="0"></iframe>
       </div>
   )
 }
