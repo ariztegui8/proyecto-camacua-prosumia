@@ -123,3 +123,9 @@ body{
 .widget-weather .temp-icon p{
     margin: 0;
 }
+
+/* Slider---- */
+.slider-container li img{
+    max-width: 100% ;
+    height: auto ;
+}
