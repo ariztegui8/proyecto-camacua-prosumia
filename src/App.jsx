@@ -1,5 +1,4 @@
 import Iframe from "./components/Iframe";
-import Slider from "./components/Slider";
 import Widgets from "./components/Widgets";
 
 function App() {
@@ -9,10 +8,7 @@ function App() {
       
         <Widgets />
 
-
         <Iframe />
-
-        <Slider />
     </div>
     
   );

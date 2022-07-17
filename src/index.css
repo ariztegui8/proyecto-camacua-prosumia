@@ -125,7 +125,26 @@ body{
 }
 
 /* Slider---- */
-.slider-container li img{
-    max-width: 100% ;
-    height: auto ;
+.slider2{
+    background-color: darkgoldenrod;
 }
+
+.slider3{
+    background-color: crimson;
+}
+
+.carousel-indicators{
+    margin-bottom: 4px !important;
+}
+
+.carousel-indicators [data-bs-target]{
+    background-color: #141414 !important;
+}
+
+/* .carousel-control-prev-icon{
+    background-image: url(./aseets/prev.svg) !important;
+}
+
+.carousel-control-next-icon{
+    background-image: url(./aseets/next.svg) !important;
+} */
