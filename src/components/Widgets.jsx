@@ -2,12 +2,30 @@ import React, { useEffect, useState } from 'react'
 import logo from '../aseets/logo.svg'
 import great from '../aseets/great.jpeg'
 import Carousel from 'react-bootstrap/Carousel';
+import { client } from '../client';
 
 const Widgets = () => {
 
     const [clima, setClima] = useState({});
+    const [slider, setSlider] = useState([])
 
     const {name, main, weather} = clima;
+
+    const getSlider = async ()=>{
+        try {
+            const response = await client.getEntries({
+                content_type: 'slider'
+            })
+            const {items} = response
+            console.log(items);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(()=>{
+        getSlider()
+    }, [])
     
 
     useEffect(()=>{
@@ -18,14 +36,14 @@ const Widgets = () => {
             const respuesta = await fetch(url);
             const resultado = await respuesta.json();
             setClima(resultado);
-            console.log(resultado);
+            
           }
           consultarApi()
     }, [])
 
     const kelvin = 273.15
     if(!name || !main |!weather) return null;
-   
+
    
   return (
         <Carousel fade>
